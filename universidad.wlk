@@ -5,12 +5,8 @@ class Materia {
     var property requisitos = #{}
     var property estudiantesInscriptos = #{}
     var property listaDeEspera = #{}
-    const cupo = 30
+    var property cupo = 30
 
-    method requisitos() {
-        return requisitos
-    }
-    
     method hayCupo() {
        return estudiantesInscriptos.size() < cupo
     }
@@ -39,12 +35,13 @@ class Materia {
 }
 
 class Registro {
-    var  property materia = null
+    var property materia = null
     var property nota = 0
 
      method materiaYnota(unaMateria, unaNota) {
         materia = unaMateria
-        nota = unaNota 
+        nota = unaNota
+        return self
     }
 
     method apruebaA(unaMateria) {
@@ -52,50 +49,23 @@ class Registro {
     }
 }
 
-object objetos1 inherits Materia{
-    
-    override method requisitos() {
-        return #{}
-    }
-}
+object objetos1 inherits Materia{}
 
-object objetos2 inherits Materia {
-  
-  override method requisitos() {
-    return #{matematicas,objetos1}
-  }
-}
-
-object objetos3 inherits  Materia {
-
-    override method requisitos() {
-        return #{matematicas, objetos1, objetos2}
-    }
-}
-
+object objetos2 inherits Materia {}
+object objetos3 inherits  Materia {}
 object baseDeDatos inherits  Materia {}
+object programacionConcurrente inherits  Materia {}
 object epyl inherits  Materia {}
 object trabajoFinal inherits  Materia {}
 object matematicas inherits  Materia {}
 object quimica inherits  Materia {}
 object biologia inherits  Materia {}
-object biologia1 inherits  Materia {
-
-    override method requisitos() {
-        return #{biologia}
-    }
-}
+object biologia1 inherits  Materia {}
 object anatomia inherits  Materia {}
 object derechoRomano inherits  Materia {}
 object historiaArgentina inherits  Materia {}
 object derechoPenal inherits  Materia {}
-object derechoPenal1 inherits  Materia {
-
-    override method requisitos() {
-        return #{derechoPenal}
-    }
-}
-
+object derechoPenal1 inherits  Materia {}
 
 object programacion {
     const property materias = #{objetos1, objetos2, objetos3, baseDeDatos, epyl, trabajoFinal, matematicas}
