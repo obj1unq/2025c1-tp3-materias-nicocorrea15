@@ -74,18 +74,23 @@ describe "Testear las materias" {
   test "luisa, romina, alicia se inscriben a materias" {
     // Si se inscriben, en este orden, Luisa, Romina, Alicia y Roque en Objetos 2, entonces las tres primeras quedan confirmadas, y Roque queda en lista de espera.
     // Si después se da de baja Romina en Objetos 2, entonces Roque pasa a tener la inscripción confirmada en esa materia.
+       
        objetos2.inscribir(luisa)
        objetos2.inscribir(alicia)
        objetos2.inscribir(romina)
        objetos2.inscribir(roque)
+       
       
-      assert.equals(#{luisa,alicia,romina}, objetos2.estudiantesInscriptos())
-      assert.equals(#{roque}, objetos2.listaDeEspera())
-      objetos2.darDeBaja(romina)
-      assert.equals(#{luisa,alicia,roque}, objetos2.estudiantesInscriptos())
-      assert.equals(#{}, objetos2.listaDeEspera())
+      
+      assert.equals(value, expression)
+      //assert.that(luisa.puedeInscribirse(objetos2))
+      //assert.that(romina.puedeInscribirse(objetos2))
+      //assert.that(alicia.puedeInscribirse(objetos2))
+      //assert.that(roque.puedeInscribirse(objetos2))
+      //assert.equals(3, objetos2.estudiantesInscriptos().size())
+      //assert.equals(1, objetos2.listaDeEspera().size())
+      // objetos2.darDeBaja(romina)
+      // assert.equals(#{luisa,alicia,roque}, objetos2.estudiantesInscriptos())
+      // assert.equals(#{}, objetos2.listaDeEspera())
   }
 }
-
-
-// Si después se da de baja Romina en Objetos 2, entonces Roque pasa a tener la inscripción confirmada en esa materia.

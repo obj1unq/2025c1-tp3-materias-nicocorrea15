@@ -13,9 +13,9 @@ class Materia {
     method inscribir(estudiante) {
         if (self.hayCupo() and estudiante.puedeInscribirse(self)) {
             estudiantesInscriptos.add(estudiante)
-            estudiante.inscribirseA(self)
-        } else {
-            listaDeEspera.add(estudiante)
+            estudiante.materiasInscriptas().add(self)
+        }  else if (!self.hayCupo()) {
+           listaDeEspera.add(estudiante)
         }
     }
 
@@ -27,8 +27,8 @@ class Materia {
     }
 
     method darDeBaja(estudiante) {
-        if (estudiantesInscriptos.remove(estudiante)
-        and estudiante.materiasInscriptas().remove(self)) {
+        if (estudiantesInscriptos.constains(estudiante)
+        and estudiante.materiasInscriptas(self)) {
             self.inscribirEstudianteEnEspera()
         }
     }
@@ -41,7 +41,6 @@ class Registro {
      method materiaYnota(unaMateria, unaNota) {
         materia = unaMateria
         nota = unaNota
-        return self
     }
 
     method apruebaA(unaMateria) {
