@@ -2789,3 +2789,7 @@
 {"level":"info","message":"⌛ Validating materias.wtest","timeElapsed":224,"timestamp":"2025-05-17T23:29:29.562Z"}
 {"level":"info","message":"⌛ Building environment","timeElapsed":238,"timestamp":"2025-05-17T23:29:35.646Z"}
 {"level":"info","message":"⌛ Validating materias.wtest","timeElapsed":238,"timestamp":"2025-05-17T23:29:35.885Z"}
+{"level":"info","message":"⌛ Building environment","timeElapsed":381,"timestamp":"2025-05-17T23:29:45.622Z"}
+{"level":"info","message":"⌛ Validating materias.wtest","timeElapsed":343,"timestamp":"2025-05-17T23:29:45.988Z"}
+{"level":"info","message":"⌛ Validating universidad.wlk","timeElapsed":180,"timestamp":"2025-05-17T23:29:46.171Z"}
+{"level":"info","message":"⌛ Validating estudiantes.wlk","timeElapsed":132,"timestamp":"2025-05-17T23:29:46.304Z"}
