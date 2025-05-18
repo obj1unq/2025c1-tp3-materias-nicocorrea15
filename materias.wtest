@@ -1,0 +1,96 @@
+import estudiantes.*
+import universidad.*
+
+describe "Testear las materias" {
+    
+     var luisa
+     var romina
+     var alicia
+     var ana
+
+    method initialize() {
+
+        luisa = new Estudiante()
+        romina = new Estudiante()
+        alicia = new Estudiante()
+        ana = new Estudiante()
+
+        objetos2.requisitos().add(objetos1)
+        objetos2.requisitos().add(matematicas)
+
+        objetos3.requisitos().add(objetos2)
+        objetos3.requisitos().add(baseDeDatos)
+
+        programacionConcurrente.requisitos().add(objetos1)
+        programacionConcurrente.requisitos().add(baseDeDatos)
+
+        objetos2.cupo(3)
+
+        biologia1.requisitos().add(biologia)
+        
+        roque.aprobar(epyl,8)
+        roque.aprobar(matematicas,5)
+        roque.aprobar(objetos1,6)
+        roque.aprobar(baseDeDatos,7)
+        roque.aprobar(quimica,6)
+        roque.aprobar(biologia,7)
+
+        ana.aprobar(epyl,10)
+
+        romina.aprobar(epyl, 5)
+        romina.aprobar(objetos1, 9)
+        romina.aprobar(matematicas, 5)
+
+        luisa.aprobar(epyl, 6)
+        luisa.aprobar(objetos1, 6)
+        luisa.aprobar(matematicas, 6)
+
+        alicia.aprobar(epyl, 6)
+        alicia.aprobar(objetos1, 6)
+        alicia.aprobar(matematicas, 6)
+
+        roque.cursar(programacion)
+        alicia.cursar(programacion)
+        romina.cursar(programacion)
+        ana.cursar(programacion)
+        luisa.cursar(programacion)
+
+        roque.cursar(medicina)
+
+    }
+  test "roque se inscribe a materias "  {
+  // Roque puede inscribirse en Objetos 2, pero no en Objetos 3 (porque le falta Objetos 2) ni en Objetos 1 (porque ya la tiene aprobada).
+        assert.that(roque.puedeInscribirse(objetos2))
+        assert.notThat(roque.puedeInscribirse(objetos3))
+        assert.notThat(roque.puedeInscribirse(objetos1))
+  }
+
+  test "roque se inscribe a mas materias" {
+// Roque puede inscribirse: en Programación, en Objetos 2 y Programación Concurrente; en Medicina, en Biología 2.
+        assert.that(roque.puedeInscribirse(objetos2))
+        assert.that(roque.puedeInscribirse(biologia1))
+  }
+
+  test "luisa, romina, alicia se inscriben a materias" {
+    // Si se inscriben, en este orden, Luisa, Romina, Alicia y Roque en Objetos 2, entonces las tres primeras quedan confirmadas, y Roque queda en lista de espera.
+    // Si después se da de baja Romina en Objetos 2, entonces Roque pasa a tener la inscripción confirmada en esa materia.
+       
+       objetos2.inscribir(luisa)
+       objetos2.inscribir(alicia)
+       objetos2.inscribir(romina)
+       objetos2.inscribir(roque)
+       
+      
+      
+      assert.equals(value, expression)
+      //assert.that(luisa.puedeInscribirse(objetos2))
+      //assert.that(romina.puedeInscribirse(objetos2))
+      //assert.that(alicia.puedeInscribirse(objetos2))
+      //assert.that(roque.puedeInscribirse(objetos2))
+      //assert.equals(3, objetos2.estudiantesInscriptos().size())
+      //assert.equals(1, objetos2.listaDeEspera().size())
+      // objetos2.darDeBaja(romina)
+      // assert.equals(#{luisa,alicia,roque}, objetos2.estudiantesInscriptos())
+      // assert.equals(#{}, objetos2.listaDeEspera())
+  }
+}
